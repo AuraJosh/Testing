@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Chatbot Widget - Client Examples</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: #f8fafc;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .example {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .example h3 {
+            margin-top: 0;
+            color: #1f2937;
+        }
+        .code {
+            background: #1f2937;
+            color: #f3f4f6;
+            padding: 16px;
+            border-radius: 8px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 14px;
+            overflow-x: auto;
+            margin: 16px 0;
+        }
+        .demo-button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 8px 8px 8px 0;
+        }
+        .demo-button:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Aura Chatbot Widget - Implementation Examples</h1>
+        
+        <div class="example">
+            <h3>1. Basic Implementation</h3>
+            <p>Minimal setup with default configuration:</p>
+            <div class="code">&lt;script src="https://your-cdn.com/aura-chatbot-widget.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  AuraChatbotWidget.init({
+    accountId: 'CLIENT123'
+  });
+&lt;/script&gt;</div>
+            <button class="demo-button" onclick="initBasic()">Test Basic Widget</button>
+        </div>
+
+        <div class="example">
+            <h3>2. Custom Branding</h3>
+            <p>Widget with custom colors, logo, and positioning:</p>
+            <div class="code">&lt;script src="https://your-cdn.com/aura-chatbot-widget.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  AuraChatbotWidget.init({
+    accountId: 'CLIENT456',
+    primaryColor: '#059669',
+    position: 'bottom-left',
+    branding: {
+      logo: 'https://example.com/logo.png',
+      name: 'Green Corp Support'
+    },
+    greetingMessage: 'Welcome to Green Corp! How can we help you today?'
+  });
+&lt;/script&gt;</div>
+            <button class="demo-button" onclick="initCustom()">Test Custom Widget</button>
+        </div>
+
+        <div class="example">
+            <h3>3. Advanced Configuration</h3>
+            <p>Full configuration with custom suggestions and API endpoint:</p>
+            <div class="code">&lt;script src="https://your-cdn.com/aura-chatbot-widget.min.js"&gt;&lt;/script&gt;
+&lt;script&gt;
+  const widget = AuraChatbotWidget.init({
+    instanceId: 'advanced-widget',
+    accountId: 'CLIENT789',
+    primaryColor: '#7c3aed',
+    position: 'top-right',
+    branding: {
+      logo: 'data:image/svg+xml;base64,PHN2Zy4uLg==',
+      name: 'TechCorp AI'
+    },
+    greetingMessage: 'Hi! I\'m TechCorp\'s AI assistant. Ready to help!',
+    suggestions: [
+      'Tell me about your products',
+      'How do I get started?',
+      'What\'s your pricing?',
+      'Contact sales team',
+      'Technical support'
+    ],
+    apiUrl: 'https://custom-api.techcorp.com/chat'
+  });
+
+  // Event listeners
+  widget.on('opened', () => console.log('Chat opened'));
+  widget.on('message', (data) => console.log('Message:', data));
+&lt;/script&gt;</div>
+            <button class="demo-button" onclick="initAdvanced()">Test Advanced Widget</button>
+        </div>
+
+        <div class="example">
+            <h3>4. Programmatic Control</h3>
+            <p>Control the widget programmatically:</p>
+            <div class="code">// Get widget instance
+const widget = AuraChatbotWidget.getInstance('default');
+
+// Open chat programmatically
+widget.open();
+
+// Send a message
+widget.sendProgrammaticMessage('Hello from JavaScript!');
+
+// Clear conversation
+widget.clearHistory();
+
+// Update configuration
+widget.updateConfig({ primaryColor: '#ef4444' });
+
+// Destroy widget
+widget.destroy();</div>
+            <button class="demo-button" onclick="openWidget()">Open Widget</button>
+            <button class="demo-button" onclick="sendMessage()">Send Message</button>
+            <button class="demo-button" onclick="clearChat()">Clear Chat</button>
+            <button class="demo-button" onclick="destroyAll()">Destroy All</button>
+        </div>
+
+        <div class="example">
+            <h3>5. Multiple Instances</h3>
+            <p>Run multiple widget instances on the same page:</p>
+            <div class="code">// Sales widget
+AuraChatbotWidget.init({
+  instanceId: 'sales-widget',
+  accountId: 'SALES001',
+  primaryColor: '#3b82f6',
+  position: 'bottom-right',
+  branding: { name: 'Sales Support' }
+});
+
+// Technical support widget
+AuraChatbotWidget.init({
+  instanceId: 'tech-widget', 
+  accountId: 'TECH001',
+  primaryColor: '#059669',
+  position: 'bottom-left',
+  branding: { name: 'Tech Support' }
+});</div>
+            <button class="demo-button" onclick="initMultiple()">Test Multiple Widgets</button>
+        </div>
+
+        <div class="example">
+            <h3>Browser Support</h3>
+            <ul>
+                <li>✅ Chrome 60+</li>
+                <li>✅ Firefox 55+</li>
+                <li>✅ Safari 11+</li>
+                <li>✅ Edge 79+</li>
+                <li>⚠️ Internet Explorer: Not supported</li>
+            </ul>
+            <p><strong>Speech Recognition:</strong> Available in Chrome, Edge, and Safari (with user permission)</p>
+        </div>
+    </div>
+
+    <!-- Load the widget from local file for testing -->
+    <script src="./full-chatbot.js"></script>
+    
+    <script>
+        function initBasic() {
+            AuraChatbotWidget.destroyAll();
+            AuraChatbotWidget.init({
+                accountId: 'CLIENT123'
+            });
+        }
+
+        function initCustom() {
+            AuraChatbotWidget.destroyAll();
+            AuraChatbotWidget.init({
+                accountId: 'CLIENT456',
+                primaryColor: '#059669',
+                position: 'bottom-left',
+                branding: {
+                    name: 'Green Corp Support'
+                },
+                greetingMessage: 'Welcome to Green Corp! How can we help you today?'
+            });
+        }
+
+        function initAdvanced() {
+            AuraChatbotWidget.destroyAll();
+            const widget = AuraChatbotWidget.init({
+                instanceId: 'advanced-widget',
+                accountId: 'CLIENT789',
+                primaryColor: '#7c3aed',
+                position: 'top-right',
+                branding: {
+                    name: 'TechCorp AI'
+                },
+                greetingMessage: 'Hi! I\'m TechCorp\'s AI assistant. Ready to help!',
+                suggestions: [
+                    'Tell me about your products',
+                    'How do I get started?',
+                    'What\'s your pricing?',
+                    'Contact sales team',
+                    'Technical support'
+                ]
+            });
+
+            widget.on('opened', () => console.log('Chat opened'));
+            widget.on('message', (data) => console.log('Message:', data));
+        }
+
+        function initMultiple() {
+            AuraChatbotWidget.destroyAll();
+            
+            AuraChatbotWidget.init({
+                instanceId: 'sales-widget',
+                accountId: 'SALES001',
+                primaryColor: '#3b82f6',
+                position: 'bottom-right',
+                branding: { name: 'Sales Support' }
+            });
+
+            AuraChatbotWidget.init({
+                instanceId: 'tech-widget',
+                accountId: 'TECH001',
+                primaryColor: '#059669',
+                position: 'bottom-left',
+                branding: { name: 'Tech Support' }
+            });
+        }
+
+        function openWidget() {
+            const widget = AuraChatbotWidget.getInstance('default');
+            if (widget) widget.open();
+        }
+
+        function sendMessage() {
+            const widget = AuraChatbotWidget.getInstance('default');
+            if (widget) widget.sendProgrammaticMessage('Hello from JavaScript!');
+        }
+
+        function clearChat() {
+            const widget = AuraChatbotWidget.getInstance('default');
+            if (widget) widget.clearHistory();
+        }
+
+        function destroyAll() {
+            AuraChatbotWidget.destroyAll();
+        }
+    </script>
+</body>
+</html>
