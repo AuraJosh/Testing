@@ -1,3 +1,9 @@
+// Add this before your main code
+console.log('Chatbot script loaded successfully');
+window.addEventListener('error', (e) => {
+  console.error('Widget error:', e.message, 'in', e.filename);
+});
+
 (function() {
   // 1. Create container for the widget
   const widget = document.createElement('div');
@@ -211,7 +217,7 @@
           <div class="flex items-center space-x-2">
             <a href="https://auraai.uk/" target="_blank" class="block">
               <div class="w-9 h-9 rounded-full bg-[#0a142e] flex items-center justify-center transition-transform hover:scale-110">
-                <img src="https://auraai.uk/Images/logo-no-bg.png" alt="Aura AI Logo" class="w-7 h-7"/>
+                <img src="https://imgur.com/a/acuKZ80" alt="Aura AI Logo" class="w-7 h-7"/>
               </div>
             </a>
             <h3 class="font-medium">Aura AI Assistant</h3>
@@ -231,7 +237,7 @@
           <div class="message ai-message">
             <div class="flex items-start">
               <div class="w-6 h-6 rounded-full bg-[#070d1e] flex items-center justify-center mt-1 flex-shrink-0">
-                <img src="https://auraai.uk/Images/logo-no-bg.png" alt="Aura AI Logo" class="w-4 h-4"/>
+                <img src="https://imgur.com/a/acuKZ80" alt="Aura AI Logo" class="w-4 h-4"/>
               </div>
               <div class="bg-gray-100 rounded-xl ml-2 max-w-[85%]">
                 <div class="message-content">
@@ -490,7 +496,7 @@
                   messageDiv.innerHTML = \`
                       <div class="flex items-start">
                           <div class="w-6 h-6 rounded-full bg-[#070d1e] flex items-center justify-center mt-1 flex-shrink-0">
-                              <img src="https://auraai.uk/Images/logo-no-bg.png" alt="Aura AI Logo" class="w-4 h-4">
+                              <img src="https://imgur.com/a/acuKZ80" alt="Aura AI Logo" class="w-4 h-4">
                           </div>
                           <div class="\${messageBg} rounded-xl ml-2 max-w-[85%]">
                               <div class="message-content">
@@ -512,7 +518,7 @@
               typingDiv.innerHTML = \`
                   <div class="flex items-start space-x-2">
                       <div class="w-6 h-6 rounded-full bg-[#070d1e] flex items-center justify-center mt-1 flex-shrink-0">
-                          <img src="https://auraai.uk/Images/logo-no-bg.png" alt="Aura AI Logo" class="w-4 h-4">
+                          <img src="https://imgur.com/a/acuKZ80" alt="Aura AI Logo" class="w-4 h-4">
                       </div>
                       <div class="bg-gray-100 rounded-xl">
                           <div class="message-content">
